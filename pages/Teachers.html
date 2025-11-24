@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-900">
+    <aside id="default-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full  overflow-y-auto bg-[grey]/10 border-default ">
+            <li class="border-[1px] h-[70px] w-full flex pb-[5px]">
+                <a href="#"
+                    class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                    <img class="w-[20px]" src="../assets/image/student-alt.png" alt="">
+                    <span class="flex-1 ms-3 whitespace-nowrap text-[18px] text-gray-200">Kanban</span>
+
+                </a>
+            </li>
+            <ul class="space-y-2 font-medium px-[10px]  ">
+                <li class="hover:bg-[grey]/30 p-[10px] pt-[5px] rounded-[15px] duration-300">
+                    <a href="../index.html" class="flex items-center px-2 py-1.5 text-body rounded-base group">
+                        <img class="w-[20px]" src="../assets/image/dashboard-monitor.png" alt="">
+                        <span class="ms-3 text-gray-200">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="bg-red-500 p-[10px] pt-[5px] rounded-[15px]">
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <img class="w-[20px]" src="../assets/image/users.png" alt="">
+                        <span class="flex-1 ms-3 whitespace-nowrap text-gray-100">Teachers</span>
+                    </a>
+                </li>
+
+                <li class="hover:bg-[grey]/30 p-[10px] pt-[5px] rounded-[15px] duration-300">
+                    <a href="../pages/Kanban.html"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <img class="w-[20px]" src="../assets/image/student-alt.png" alt="">
+                        <span class="flex-1 ms-3 whitespace-nowrap text-gray-200">Kanban</span>
+
+                    </a>
+                </li>
+
+
+
+                <li class="hover:bg-[grey]/30 p-[10px] pt-[5px] rounded-[15px] duration-300">
+                    <a href="../pages/Settings.html"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <img src="../assets/image/settings.png" alt="">
+                        <span class="flex-1 ms-3 whitespace-nowrap text-gray-200">Settings</span>
+
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </aside>
+
+    <div class="sm:ml-64 lg:ml-64  bg-gray-800 p-[15px] flex justify-between items-center">
+        <h1 class="text-gray-100 text-[30px] ml-6">School Management System</h1>
+        <img src="../assets/image/sun.png" alt="">
+    </div>
+
+    <div class="sm:ml-64 lg:ml-64   p-[15px] ">
+        <div class="flex items-center justify-between w-full px-[20px] pb-[90px]">
+            <div>
+                <h1 class="text-gray-100 text-[26px]">
+                    Teachers
+                </h1>
+                <h1 class="text-gray-300 text-[20px]">
+                    Showing 24 of 24 teachers
+                </h1>
+            </div>
+            <h1 class="text-gray-100 text-[26px] bg-blue-800 p-[10px] rounded-[15px]">
+                + Add Ticher
+            </h1>
+
+        </div>
+        <div id="tichers-card" class="px-[20px]">
+            
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
