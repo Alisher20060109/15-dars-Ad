@@ -2,20 +2,29 @@ let teachersCard = document.getElementById("tichers-card");
 let form = document.getElementById("form");
 let outerModal = document.getElementById("outer-modal");
 let addTicher = document.getElementById("addTicher");
+let pagination = document.getElementById("pagenishn");
+let pageNumberEl = document.getElementById("page-number");
 
-let currentEditID = null; // ← edit rejimi uchun
-
+let currentPage = 1;
+const limit = 12; 
 const API = "https://692458a93ad095fb8473d421.mockapi.io/teachers";
 
-async function gitData(content) {
+async function getData(content) {
   try {
     content.innerHTML = "";
-    let res = await axios.get(API);
+
+    let all = await axios.get(API);
+    let totalCount = all.data.length;
+    let totalPages = Math.ceil(totalCount / limit);
+
+    let res = await axios.get(`${API}?page=${currentPage}&limit=${limit}`);
 
     res.data.forEach((el) => {
       content.innerHTML += `
       <div class="bg-gray-800 max-w-[400px] flex flex-col hover:scale-105 duration-300 items-center justify-center gap-2 p-[30px] cursor-pointer rounded-[20px]">
-          <img class="w-[100px] rounded-[50px]" src="${el.avatar}" alt="">
+          <a href="./singl.html?teacherId=${el.id}" class="w-[100px] h-[100px] pb-[90px]  ">
+          <img class="w-[100px] h-[100px] rounded-[50px] object-cover border-3 border-pink-800   shadow-[0_0_15px] shadow-blue-500" src="${el.avatar}" alt="">
+          </a>
           <h1 class="text-gray-100">${el.name}</h1>
           <h1 class="text-gray-100">${el.profession}</h1>
           
@@ -41,25 +50,37 @@ async function gitData(content) {
       </div>
       `;
     });
+
+    pageNumberEl.textContent = `${currentPage} / ${totalPages}`;
   } catch (err) {
     console.log(err);
   }
 }
-gitData(teachersCard);
 
+function nextPage() {
+  currentPage++;
+  getData(teachersCard);
+}
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    getData(teachersCard);
+  }
+}
+
+getData(teachersCard);
 
 outerModal.addEventListener("click", () => {
   outerModal.classList.add("hidden");
 });
 form.addEventListener("click", (e) => e.stopPropagation());
 
-
 addTicher.addEventListener("click", () => {
-  currentEditID = null; // ← yangi qo‘shish
+  currentEditID = null;
   form.reset();
   outerModal.classList.remove("hidden");
 });
-
 
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -76,12 +97,9 @@ form.addEventListener("submit", async function (e) {
     telegram: form[8].value,
   };
 
-  // ➤ ADD
   if (!currentEditID) {
     await axios.post(API, tObj);
-  } 
-  // ➤ UPDATE
-  else {
+  } else {
     await axios.put(`${API}/${currentEditID}`, tObj);
   }
 
@@ -97,7 +115,7 @@ async function deleteTeacher(id) {
 async function editTeacher(id) {
   const item = await axios.get(`${API}/${id}`);
 
-  currentEditID = id; // ← edit rejimini yoqish
+  currentEditID = id;
 
   form[0].value = item.data.name;
   form[1].value = item.data.avatar;
@@ -111,4 +129,3 @@ async function editTeacher(id) {
 
   outerModal.classList.remove("hidden");
 }
-

@@ -11,7 +11,8 @@
 
 <body class="bg-gray-900 relative">
 
-    <div id="outer-modal" class="hidden  fixed left-0 ring-0 top-0 w-full bg-black/80 flex justify-center items-center h-full absolute z-100">
+    <div id="outer-modal"
+        class="hidden  fixed left-0 ring-0 top-0 w-full bg-black/80 flex justify-center items-center h-full absolute z-100">
         <form id="form" class="max-w-md mx-auto bg-gray-100 p-[20px] rounded-[20px]  ">
             <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="floating_email" id="floating_email"
@@ -30,15 +31,15 @@
             <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="floating_password" id="floating_password"
                     class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                    placeholder=" "  />
+                    placeholder=" " />
                 <label for="floating_password"
                     class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">profession</label>
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
-                    <input type="text"   id=""
+                    <input type="text" id=""
                         class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                        placeholder=" "  />
+                        placeholder=" " />
                     <label for="floating_phone"
                         class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">age</label>
                 </div>
@@ -52,14 +53,14 @@
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
-                    <input type="tel" 
+                    <input type="tel"
                         class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                         placeholder=" " required />
                     <label for="floating_phone"
                         class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">rating</label>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
-                    <input type="tel" 
+                    <input type="tel"
                         class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                         placeholder=" " required />
                     <label for="floating_company"
@@ -76,7 +77,7 @@
                         class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Emile</label>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
-                    <input type="text" 
+                    <input type="text"
                         class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                         placeholder=" " required />
                     <label for="floating_company"
@@ -171,6 +172,29 @@
             </h1>
 
         </div>
+
+        <nav id="pagenishn" class="flex justify-center pb-[30px]">
+            <ul class="flex -space-x-px text-sm">
+                <li>
+                    <button onclick="prevPage()"
+                        class="flex items-center justify-center border text-white text-sm px-3 h-9">
+                        Previous
+                    </button>
+                </li>
+                <li class="flex items-center justify-center text-white border text-sm px-3 h-9" id="page-number">
+                    1
+                </li>
+                <li>
+                    <button onclick="nextPage()"
+                        class="flex items-center justify-center text-white border text-sm px-3 h-9">
+                        Next
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+
+
         <div id="tichers-card" class="px-[20px] grid md:grid-cols-2  lg:grid-cols-4 gap-[20px]">
 
         </div>
