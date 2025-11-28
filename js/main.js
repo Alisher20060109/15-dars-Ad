@@ -6,7 +6,7 @@ let pagination = document.getElementById("pagenishn");
 let pageNumberEl = document.getElementById("page-number");
 
 let currentPage = 1;
-const limit = 12; 
+const limit = 12;
 const API = "https://692458a93ad095fb8473d421.mockapi.io/teachers";
 
 async function getData(content) {
@@ -80,6 +80,7 @@ addTicher.addEventListener("click", () => {
   currentEditID = null;
   form.reset();
   outerModal.classList.remove("hidden");
+  editTeacher(id);
 });
 
 form.addEventListener("submit", async function (e) {
@@ -104,12 +105,12 @@ form.addEventListener("submit", async function (e) {
   }
 
   outerModal.classList.add("hidden");
-  gitData(teachersCard);
+  getData(teachersCard);
 });
 
 async function deleteTeacher(id) {
   await axios.delete(`${API}/${id}`);
-  gitData(teachersCard);
+  getData(teachersCard);
 }
 
 async function editTeacher(id) {
@@ -128,4 +129,6 @@ async function editTeacher(id) {
   form[8].value = item.data.telegram;
 
   outerModal.classList.remove("hidden");
+ 
+  getData(teachersCard);
 }
