@@ -167,11 +167,90 @@
                     Showing 24 of 24 teachers
                 </h1>
             </div>
-            <h1 id="addTicher" class="text-gray-100 text-[26px] bg-blue-800 p-[10px] rounded-[15px]">
+            <h1 id="addTicher" class="text-gray-100 cursor-pointer text-[26px] bg-blue-800 p-[10px] rounded-[15px]">
                 + Add Ticher
             </h1>
 
         </div>
+
+
+        <div class="max-w-[1250px] px-[20px] w-full pb-[40px]">
+            <form class="w-full ">
+                <label for="search" class="block mb-2.5 text-sm font-medium text-heading sr-only ">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </div>
+                    <input type="search" id="search"
+                        class="block w-full p-3 ps-9   bg-gray-700  shadow-[0_0_15px] shadow-blue-500     text-sm rounded-base  shadow-xs "
+                        placeholder="Search" required />
+                    <button type="button"
+                        class="absolute end-1.5 bottom-1.5 text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded text-xs px-3 py-1.5 focus:outline-none">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="max-w-[1250px] w-full px-[20px] pb-[30px]">
+
+            <form class=" flex w-full gap-[30px] items-center ">
+                <div>
+                   
+                    <select id="sort-name"
+                        class="block w-full px-3 py-2.5 bg-gray-600 border   text-sm rounded-sm   shadow-xs  mb-4">
+                        <option value="Default">Default</option>
+                        <option value="asc">A-Z</option>
+                        <option value="desc">Z-A</option>
+                        
+                    </select>
+                </div>
+                <div>
+                   
+                     
+                    <select id="small"
+                        class="block w-full px-3 py-2.5 bg-gray-600 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body mb-4">
+                        <option selected>Choose a country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                    </select>
+                </div>
+                <div>
+                   
+                    <select id="small"
+                        class="block w-full px-3 py-2.5 bg-gray-600 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body mb-4">
+                        <option selected>Choose a country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                    </select>
+                </div>
+                <div>
+                   
+                    <select id="small"
+                        class="block w-full px-3 py-2.5 bg-gray-600 border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body mb-4">
+                        <option selected>Choose a country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                    </select>
+                </div>
+
+                
+            </form>
+
+        </div>
+        
+        
+        
+        
+        
 
         <nav id="pagenishn" class="flex justify-center pb-[30px]">
             <ul class="flex -space-x-px text-sm">
@@ -192,6 +271,7 @@
                 </li>
             </ul>
         </nav>
+
 
 
 
