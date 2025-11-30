@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -61,6 +61,156 @@
             </ul>
         </div>
     </aside>
+
+    <div class="sm:ml-64 lg:ml-64  bg-gray-800 p-[15px] flex justify-between items-center">
+        <h1 class="text-gray-100 text-[30px] ml-6">School Management System</h1>
+        <img src="../assets/image/sun.png" alt="">
+    </div>
+
+
+    <div class="sm:ml-64 lg:ml-64   p-[15px] ">
+        <div class="flex items-center justify-between w-full px-[20px] pb-[30px]">
+            <div>
+                <h1 class="text-gray-100 text-[26px]">
+                    Settings
+                </h1>
+                <h1 class="text-gray-300 text-[20px]">
+                    Manage your application settings
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-xl w-full bg-gray-800 ml-[20px] text-white p-6 rounded-xl shadow-md">
+            <h2 class="text-xl font-semibold mb-1">Profile Settings</h2>
+            <p class="text-gray-400 text-sm mb-6">Update your profile information</p>
+
+            <!-- Name -->
+            <div class="mb-5">
+                <label class="block text-sm mb-2 text-gray-300" for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name"
+                    class="w-full bg-[#0b1528] border border-[#1f2b44] rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-6">
+                <label class="block text-sm mb-2 text-gray-300" for="email">Email</label>
+                <input id="email" type="email" placeholder="your.email@example.com"
+                    class="w-full bg-[#0b1528] border border-[#1f2b44] rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+            </div>
+
+            <button class="bg-white text-gray-800 px-5 py-2 rounded-lg font-medium hover:bg-gray-100 transition">
+                Save Changes
+            </button>
+        </div>
+
+        <div class="max-w-xl w-full mt-[20px] mb-[20px] ml-[20px] mt-10 bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="p-6 space-y-8">
+                <!-- Title -->
+                <div>
+                    <h2 class="text-2xl font-semibold text-white">Notifications</h2>
+                    <p class="text-gray-400 text-sm mt-1">Manage your notification preferences</p>
+                </div>
+
+                <!-- Notification Options -->
+                <div class="space-y-7">
+                    <!-- Email Notifications -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-white">Email Notifications</h3>
+                            <p class="text-gray-400 text-sm mt-1">Receive email updates about your account</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer 
+                      peer-checked:after:translate-x-full peer-checked:after:border-white 
+                      after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                      after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all 
+                      peer-checked:bg-gray-600"></div>
+                        </label>
+                    </div>
+
+                    <!-- Push Notifications -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-white">Push Notifications</h3>
+                            <p class="text-gray-400 text-sm mt-1">Receive push notifications on your devices</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer 
+                      peer-checked:after:translate-x-full peer-checked:after:border-white 
+                      after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                      after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all 
+                      peer-checked:bg-gray-600"></div>
+                        </label>
+                    </div>
+
+                    <!-- Weekly Reports -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-white">Weekly Reports</h3>
+                            <p class="text-gray-400 text-sm mt-1">Get weekly reports about school activities</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer 
+                      peer-checked:after:translate-x-full peer-checked:after:border-white 
+                      after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                      after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all 
+                      peer-checked:bg-indigo-500 peer-checked:bg-opacity-80"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="max-w-xl w-full mt-10 bg-gray-800 ml-[20px] rounded-2xl shadow-2xl overflow-hidden">
+            <div class="p-6 space-y-8">
+                <!-- Title -->
+                <div>
+                    <h2 class="text-2xl font-semibold text-white">Privacy</h2>
+                    <p class="text-gray-400 text-sm mt-1">Manage your privacy settings</p>
+                </div>
+
+                <!-- Privacy Options -->
+                <div class="space-y-7">
+                    <!-- Public Profile -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-white">Public Profile</h3>
+                            <p class="text-gray-400 text-sm mt-1">Make your profile visible to others</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-700 rounded-full peer 
+                      peer-checked:after:translate-x-full 
+                      after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                      after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
+                      peer-checked:bg-indigo-500"></div>
+                        </label>
+                    </div>
+
+                    <!-- Show Activity Status -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-white">Show Activity Status</h3>
+                            <p class="text-gray-400 text-sm mt-1">Let others see when you're online</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-700 rounded-full peer 
+                      peer-checked:after:translate-x-full 
+                      after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                      after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
+                      peer-checked:bg-indigo-500"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 
