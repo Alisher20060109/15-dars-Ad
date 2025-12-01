@@ -2,61 +2,37 @@ let teachersCard = document.getElementById("tichers-card");
 let form = document.getElementById("form");
 let outerModal = document.getElementById("outer-modal");
 let addTicher = document.getElementById("addTicher");
-let pagination = document.getElementById("pagenishn");
 let pageNumberEl = document.getElementById("page-number");
 let sortName = document.getElementById("sort-name");
-
 let search = document.getElementById("search");
+
 let searchValue = "";
 let sortNameValue = "";
-let currentEditID = null;
-
 let currentPage = 1;
+let currentEditID = null;
 const limit = 12;
-const API = "https://692458a93ad095fb8473d421.mockapi.io/sutudents  ";
+const API = "https://692458a93ad095fb8473d421.mockapi.io/sutudents"; // ⬅️ ortiqcha bo'sh joy olib tashlandi
 
-let tObj = {
-  name: form.name.value,
-  avatar: form.avatar.value,
-  profession: form.profession.value,
-  age: form.age.value,
-  Chemistry: form.experience.value,
-  Rating: form.rating.value,
-  Coins: form.coins.value,
-  Phone: form.phone.value,
-  Email: form.email.value,
-  Telegram: form.telegram.value,
-  LinkedIn: form.linkedIn.value,
-  Gender: form.gender.checked,
-};
-
-/* ===========================
- SEARCH EVENT
-=========================== */
-search.addEventListener("input", function (e) {
+/* -------------------- SEARCH -------------------- */
+search.addEventListener("input", (e) => {
   searchValue = e.target.value.trim().toLowerCase();
   currentPage = 1;
-  getData(teachersCard, searchValue);
+  getData();
 });
 
-/* ===========================
- SORT EVENT
-=========================== */
-sortName.addEventListener("change", function (e) {
+/* -------------------- SORT -------------------- */
+sortName.addEventListener("change", (e) => {
   sortNameValue = e.target.value;
-  getData(teachersCard, searchValue);
+  getData();
 });
 
-/* ===========================
- GET DATA
-=========================== */
-async function getData(content, searchValue = "") {
+/* -------------------- GET DATA -------------------- */
+async function getData() {
   try {
-    content.innerHTML = "";
+    teachersCard.innerHTML = "";
     let res = await axios.get(API);
     let data = res.data;
 
-    // 🔍 search filtering
     if (searchValue) {
       data = data.filter(
         (item) =>
@@ -65,30 +41,24 @@ async function getData(content, searchValue = "") {
       );
     }
 
-    // 🔽 sort
-    if (sortNameValue === "asc") {
+    if (sortNameValue === "asc")
       data.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortNameValue === "desc") {
+    if (sortNameValue === "desc")
       data.sort((a, b) => b.name.localeCompare(a.name));
-    }
 
-    // 📄 pagination
-    let totalCount = data.length;
-    let totalPages = Math.ceil(totalCount / limit);
-
+    let totalPages = Math.ceil(data.length / limit);
     let start = (currentPage - 1) * limit;
     let end = start + limit;
     let pageData = data.slice(start, end);
 
-    /* ===========================
-    CARD RENDER
-    =========================== */
     pageData.forEach((el) => {
-      content.innerHTML += `
-   <div class="bg-[#0d153e] w-full max-w-[350px] rounded-3xl p-6 flex flex-col items-center gap-5 text-white shadow-xl border border-[#1f2b47]">
+      teachersCard.innerHTML += `
+         <div class="bg-[#0d153e] w-full max-w-[350px] rounded-3xl p-6 flex flex-col items-center gap-5 text-white shadow-xl border border-[#1f2b47]">
     
     <!-- Avatar -->
-    <a href="./singl-card.html?sutudentsId=${el.id}" class="w-[130px] h-[130px]">
+    <a href="./singl-card.html?sutudentsId=${
+      el.id
+    }" class="w-[130px] h-[130px]">
         <img class="w-full h-full rounded-full object-cover border-4 border-[#5b2cff] shadow-[0_0_30px_#5b2cff50]" 
             src="${el.avatar}" alt="">
     </a>
@@ -156,100 +126,93 @@ async function getData(content, searchValue = "") {
 
     pageNumberEl.textContent = `${currentPage} / ${totalPages}`;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
-/* ===========================
- PAGINATION
-=========================== */
+/* -------------------- PAGINATION -------------------- */
 function nextPage() {
   currentPage++;
-  getData(teachersCard, searchValue);
+  getData();
 }
-
 function prevPage() {
   if (currentPage > 1) {
     currentPage--;
-    getData(teachersCard, searchValue);
+    getData();
   }
 }
 
-/* ===========================
- MODAL OCHISH / YOPISH
-=========================== */
-outerModal.addEventListener("click", () => {
-  outerModal.classList.add("hidden");
-});
-
+/* -------------------- MODAL -------------------- */
+outerModal.addEventListener("click", () => outerModal.classList.add("hidden"));
 form.addEventListener("click", (e) => e.stopPropagation());
 
-/* ===========================
- ADD TEACHER
-=========================== */
+/* -------------------- ADD STUDENT -------------------- */
 addTicher.addEventListener("click", () => {
   currentEditID = null;
   form.reset();
   outerModal.classList.remove("hidden");
 });
 
-/* ===========================
- FORM SUBMIT
-=========================== */
-form.addEventListener("submit", async function (e) {
+/* -------------------- FORM SUBMIT -------------------- */
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   let tObj = {
-    name: form[0].value,
-    avatar: form[1].value,
-    profession: form[2].value,
-    age: form[3].value,
-    experience: form[4].value,
-    rating: form[5].value,
-    phone: form[6].value,
-    email: form[7].value,
-    telegram: form[8].value,
+    name: form.name.value,
+    avatar: form.avatar.value,
+    profession: form.profession.value,
+    age: form.age.value,
+    experience: form.experience.value,
+    rating: form.rating.value,
+    coins: form.coins ? form.coins.value : 0,
+    Phone: form.phone.value,
+    Email: form.email.value,
+    Telegram: form.telegram.value,
+    LinkedIn: form.linkedIn.value,
+    Gender: form.gender.checked,
   };
 
-  if (!currentEditID) {
-    await axios.post(API, tObj); // ⬅️ yangi student
-  } else {
-    await axios.put(`${API}/${currentEditID}`, tObj); // ⬅️ edit
-  }
+  try {
+    if (!currentEditID) {
+      await axios.post(API, tObj);
+    } else {
+      await axios.put(`${API}/${currentEditID}`, tObj);
+    }
 
-  outerModal.classList.add("hidden");
-  getData(teachersCard); // re-render only once
+    outerModal.classList.add("hidden");
+    form.reset();
+    getData();
+  } catch (err) {
+    console.error(err);
+  }
 });
 
-/* ===========================
- DELETE
-=========================== */
+/* -------------------- DELETE -------------------- */
 async function deleteTeacher(id) {
   await axios.delete(`${API}/${id}`);
-  getData(teachersCard);
+  getData();
 }
 
-/* ===========================
- EDIT (FAQAT FORM DATA)
-=========================== */
+/* -------------------- EDIT -------------------- */
 async function editTeacher(id) {
   const item = await axios.get(`${API}/${id}`);
   currentEditID = id;
 
-  form[0].value = item.data.name;
-  form[1].value = item.data.avatar;
-  form[2].value = item.data.profession;
-  form[3].value = item.data.age;
-  form[4].value = item.data.experience;
-  form[5].value = item.data.rating;
-  form[6].value = item.data.phone;
-  form[7].value = item.data.email;
-  form[8].value = item.data.telegram;
+  form.name.value = item.data.name;
+  form.avatar.value = item.data.avatar;
+  form.profession.value = item.data.profession;
+  form.age.value = item.data.age;
+  form.experience.value = item.data.experience;
+  form.rating.value = item.data.rating;
+  if (form.coins) form.coins.value = item.data.Coins || 0;
+  form.phone.value = item.data.Phone;
+  form.email.value = item.data.Email;
+  form.telegram.value = item.data.Telegram;
+  form.linkedIn.value = item.data.LinkedIn;
+  form.gender.checked = item.data.Gender;
 
   outerModal.classList.remove("hidden");
 }
 
-/* ===========================
- INITIAL LOAD
-=========================== */
-getData(teachersCard);
+/* -------------------- INITIAL LOAD -------------------- */
+getData();

@@ -11,15 +11,21 @@
 
 <body class="bg-gray-900">
 
-    <div id="outer-modal" class="fixed left-0 top-0 w-full bg-black/80 flex justify-center items-center h-full z-100">
-        <form id="form" class="max-w-md mx-auto bg-gray-100 p-5 rounded-2xl space-y-5">
+    <div id="outer-modal"
+        class="hidden fixed left-0 top-0 w-full h-full bg-black/80 flex justify-center items-center z-50 p-4">
+        <form id="form" class="w-full max-w-lg bg-gray-100 p-6 rounded-2xl shadow-lg space-y-5 relative">
+
+            <!-- Close Button -->
+            <button type="button" onclick="outerModal.classList.add('hidden')"
+                class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
 
             <!-- Fullname -->
             <div class="relative z-0 w-full group">
                 <input type="text" name="name"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" "
-                    required />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " required />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     Full Name
                 </label>
             </div>
@@ -27,9 +33,10 @@
             <!-- Avatar -->
             <div class="relative z-0 w-full group">
                 <input type="text" name="avatar"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" "
-                    required />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " required />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     Avatar (image URL)
                 </label>
             </div>
@@ -37,49 +44,53 @@
             <!-- Profession -->
             <div class="relative z-0 w-full group">
                 <input type="text" name="profession"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" " />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     Profession
                 </label>
             </div>
 
             <!-- Age / Experience -->
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="relative z-0 w-full group">
                     <input type="number" name="age"
-                        class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none"
+                        class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                         placeholder=" " />
-                    <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label
+                        class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                         Age
                     </label>
                 </div>
-
                 <div class="relative z-0 w-full group">
                     <input type="number" name="experience"
-                        class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none"
+                        class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                         placeholder=" " />
-                    <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label
+                        class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                         Experience (years)
                     </label>
                 </div>
             </div>
 
             <!-- Rating / Coins -->
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="relative z-0 w-full group">
                     <input type="number" name="rating"
-                        class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none"
+                        class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                         placeholder=" " />
-                    <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label
+                        class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                         Rating (1–5)
                     </label>
                 </div>
-
                 <div class="relative z-0 w-full group">
                     <input type="number" name="coins"
-                        class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none"
+                        class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                         placeholder=" " />
-                    <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label
+                        class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                         Coins
                     </label>
                 </div>
@@ -88,8 +99,10 @@
             <!-- Phone -->
             <div class="relative z-0 w-full group">
                 <input type="tel" name="phone"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" " />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     Phone Number
                 </label>
             </div>
@@ -97,8 +110,10 @@
             <!-- Email -->
             <div class="relative z-0 w-full group">
                 <input type="email" name="email"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" " />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     Email
                 </label>
             </div>
@@ -106,8 +121,10 @@
             <!-- Telegram -->
             <div class="relative z-0 w-full group">
                 <input type="text" name="telegram"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" " />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     Telegram @
                 </label>
             </div>
@@ -115,21 +132,28 @@
             <!-- LinkedIn -->
             <div class="relative z-0 w-full group">
                 <input type="text" name="linkedIn"
-                    class="block py-2.5 w-full text-sm bg-transparent border-b-2 focus:outline-none" placeholder=" " />
-                <label class="absolute text-sm top-3 duration-300 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    class="peer block py-2.5 w-full text-sm bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                    placeholder=" " />
+                <label
+                    class="absolute text-gray-500 text-sm top-2 left-0 duration-300 transform -translate-y-1 scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75">
                     LinkedIn
                 </label>
             </div>
 
             <!-- Gender -->
             <div class="flex items-center gap-3">
-                <input type="checkbox" name="gender" id="gender">
-                <label for="gender">Male</label>
+                <input type="checkbox" name="gender" id="gender" class="w-4 h-4 text-blue-600">
+                <label for="gender" class="text-gray-700">Male</label>
             </div>
 
-            <button class="bg-blue-800 text-white p-2 rounded-md w-full">Submit</button>
+            <!-- Submit -->
+            <button type="submit"
+                class="w-full bg-blue-800 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                Submit
+            </button>
         </form>
     </div>
+
 
 
     <aside id="default-sidebar"
@@ -303,7 +327,7 @@
     </div>
 
 
-    
+
     <script src="../js/kanban.js"></script>
 </body>
 

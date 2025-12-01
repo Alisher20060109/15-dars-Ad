@@ -15,6 +15,8 @@ let currentEditID = null;
 const limit = 12;
 const API = "https://692458a93ad095fb8473d421.mockapi.io/teachers";
 
+/* ------------ INITIAL LOAD ------------ */
+window.addEventListener("DOMContentLoaded", getData);
 
 /* ------------ SEARCH EVENT ------------ */
 search.addEventListener("input", function (e) {
@@ -23,13 +25,11 @@ search.addEventListener("input", function (e) {
   getData();
 });
 
-
 /* ------------ SORT EVENT ------------ */
 sortName.addEventListener("change", function (e) {
   sortNameValue = e.target.value;
   getData();
 });
-
 
 /* ------------ GET DATA ------------ */
 async function getData() {
@@ -59,7 +59,7 @@ async function getData() {
 
     pageData.forEach((el) => {
       teachersCard.innerHTML += `
-        <div class="bg-[#0f1a3a] w-full max-w-[350px] rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg hover:scale-[1.03] duration-300">
+         <div class="bg-[#0f1a3a] w-full max-w-[350px] rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg hover:scale-[1.03] duration-300">
 
         <a href="./singl.html?teacherId=${el.id}" class="w-[110px] h-[110px]">
             <img class="w-full h-full rounded-full object-cover border-3 border-pink-800 shadow-[0_0_20px] shadow-blue-500 " src="${el.avatar}" alt="">
@@ -105,7 +105,6 @@ async function getData() {
   }
 }
 
-
 /* ------------ PAGINATION ------------ */
 function nextPage() {
   currentPage++;
@@ -119,14 +118,12 @@ function prevPage() {
   }
 }
 
-
 /* ------------ MODAL CLOSE ------------ */
 outerModal.addEventListener("click", () => {
   outerModal.classList.add("hidden");
 });
 
 form.addEventListener("click", (e) => e.stopPropagation());
-
 
 /* ------------ ADD NEW ------------ */
 addTicher.addEventListener("click", () => {
@@ -135,13 +132,12 @@ addTicher.addEventListener("click", () => {
   outerModal.classList.remove("hidden");
 });
 
-
 /* ------------ SUBMIT (CREATE / EDIT) ------------ */
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   let tObj = {
-    name: form.name.value,
+    name: form.fullname.value,
     avatar: form.avatar.value,
     profession: form.profession.value,
     age: form.age.value,
@@ -149,8 +145,8 @@ form.addEventListener("submit", async function (e) {
     rating: form.rating.value,
     phone: form.phone.value,
     email: form.email.value,
-    telegram: form.telegram.value,
-    linkedin: form.linkedIn.value
+    
+   
   };
 
   if (!currentEditID) {
@@ -160,10 +156,10 @@ form.addEventListener("submit", async function (e) {
   }
 
   outerModal.classList.add("hidden");
+  form.reset();
   currentPage = 1;
   getData();
 });
-
 
 /* ------------ DELETE ------------ */
 async function deleteTeacher(id) {
@@ -171,14 +167,13 @@ async function deleteTeacher(id) {
   getData();
 }
 
-
 /* ------------ EDIT ------------ */
 async function editTeacher(id) {
   const item = await axios.get(`${API}/${id}`);
 
   currentEditID = id;
 
-  form.name.value = item.data.name;
+  form.fullname.value = item.data.name;
   form.avatar.value = item.data.avatar;
   form.profession.value = item.data.profession;
   form.age.value = item.data.age;
@@ -186,8 +181,7 @@ async function editTeacher(id) {
   form.rating.value = item.data.rating;
   form.phone.value = item.data.phone;
   form.email.value = item.data.email;
-  form.telegram.value = item.data.telegram;
-  form.linkedIn.value = item.data.linkedin;
+  
 
   outerModal.classList.remove("hidden");
 }
